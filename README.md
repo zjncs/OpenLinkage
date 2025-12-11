@@ -68,7 +68,6 @@ python run.py
 
 © 2025 Linkage Team. All rights reserved.
 
-```
 
 
 
