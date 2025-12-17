@@ -47,7 +47,7 @@ User
 
 ## 📦 快速开始 / Quick Start
 
-本仓库内包含一个可直接运行的 FastAPI 多智能体演示服务，附带基础校验、概览汇总与单元测试用例，便于快速扩展。
+本仓库内包含一个可直接运行的 FastAPI 多智能体演示服务，附带基础校验、概览汇总与单元测试用例，便于快速扩展。   
 
 ```bash
 git clone https://github.com/your-org/OpenLinkage.git
