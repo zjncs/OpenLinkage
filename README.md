@@ -8,7 +8,7 @@
 ## 🚀 简介 / Overview
 
 **OpenLinkage** 是由 [Linkage App](https://your-site-link.com) 团队开源的健康智能体框架。
-它为开发者提供了一套可扩展的底层架构，用于构建 AI 健康助手、医生辅助分析与个性化健康管理系统。
+它为开发者提供了一套可扩展的底层架构，用于构建 AI 健康助手、医生辅助分析与个性化健康管理系统。  
 
 主要特性：
 - 🧠 **多智能体协作系统**（Multi-Agent Framework）
