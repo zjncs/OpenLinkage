@@ -54,3 +54,15 @@ apps/mobile/ios/Pods/
 
 # Desktop
 apps/desktop/.manus-logs/
+
+# Python
+__pycache__/
+*.pyc
+.venv
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
