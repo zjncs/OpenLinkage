@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">灵犀健康</string>
+    <string name="title_activity_main">灵犀健康</string>
+    <string name="package_name">com.linkage.health</string>
+    <string name="custom_url_scheme">com.linkage.health</string>
+</resources>

@@ -1,0 +1,71 @@
+<!-- pages/login/login.wxml -->
+<view class="login-container">
+  <!-- 卡片容器 -->
+  <view class="login-card">
+    <!-- Logo图片 -->
+    <view class="logo-container">
+      <image class="logo-image" src="/assets/images/login.png" mode="aspectFit"></image>
+    </view>
+
+    <!-- 人脸识别登录（主按钮） -->
+    <button class="login-button primary" bindtap="faceLogin">
+      <text class="button-icon">👤</text>
+      <text>人脸识别登录</text>
+    </button>
+
+    <!-- 其他登录方式 -->
+    <view class="other-login" bindtap="toggleLoginMethods">
+      <text class="other-login-text">其他登录方式</text>
+      <text class="arrow {{showOtherMethods ? 'up' : 'down'}}">{{showOtherMethods ? '▲' : '▼'}}</text>
+    </view>
+
+    <!-- 展开的登录方式 -->
+    <view class="login-methods {{showOtherMethods ? 'show' : ''}}">
+      <!-- 手机验证码登录 -->
+      <view class="phone-login-section">
+        <view class="input-group">
+          <input
+            class="input-field"
+            type="number"
+            maxlength="11"
+            placeholder="请输入手机号"
+            value="{{phone}}"
+            bindinput="onPhoneInput"
+          />
+        </view>
+        <view class="input-group code-group">
+          <input
+            class="input-field code-input"
+            type="number"
+            maxlength="6"
+            placeholder="请输入验证码"
+            value="{{code}}"
+            bindinput="onCodeInput"
+          />
+          <button
+            class="send-code-btn {{codeSending ? 'disabled' : ''}}"
+            bindtap="sendCode"
+            disabled="{{codeSending}}"
+          >
+            {{codeButtonText}}
+          </button>
+        </view>
+        <button class="login-button secondary" bindtap="phoneLogin">
+          <text class="button-icon">📱</text>
+          <text>手机验证码登录</text>
+        </button>
+      </view>
+
+      <!-- 微信登录 -->
+      <button class="login-button secondary" bindtap="wechatLogin">
+        <text class="button-icon">💬</text>
+        <text>微信一键登录</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 底部Logo -->
+  <view class="bottom-logo">
+    <text class="logo-text">linkage</text>
+  </view>
+</view>

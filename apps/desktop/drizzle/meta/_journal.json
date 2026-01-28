@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1769522087791,
+      "tag": "0000_clever_malice",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1769522498051,
+      "tag": "0001_old_magik",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1769522634417,
+      "tag": "0002_productive_cargill",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1769522781018,
+      "tag": "0003_fine_sunfire",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1769522877099,
+      "tag": "0004_sharp_zuras",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+:root {
+  --app-bg: #f5f5f5;
+  --app-card: #ffffff;
+  --app-text: #333333;
+  --app-muted: #999999;
+  --app-primary: #4caf50;
+  --app-primary-2: #45a049;
+  --app-blue: #5b6ef5;
+  --app-radius: 16px;
+  --app-radius-lg: 20px;
+  --app-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --app-tabbar-height: 50px;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Vant theme */
+  --van-primary-color: var(--app-primary);
+  --van-button-primary-background: var(--app-primary);
+  --van-button-primary-border-color: var(--app-primary);
+  --van-nav-bar-background: var(--app-card);
+  --van-nav-bar-text-color: var(--app-text);
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--app-bg);
+  color: var(--app-text);
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+/* Common helpers (mirrors miniprogram/app.wxss intent) */
+.app-page {
+  min-height: 100vh;
+  background: var(--app-bg);
+}
+
+.app-page.with-tabbar {
+  padding-bottom: calc(var(--app-tabbar-height) + env(safe-area-inset-bottom));
+}
+
+.app-card {
+  background: var(--app-card);
+  border-radius: var(--app-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.app-container {
+  padding: 12px;
+}
+
+.text-muted {
+  color: var(--app-muted);
+}

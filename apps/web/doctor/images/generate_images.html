@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>生成头像图片</title>
+</head>
+<body>
+  <h2>右键点击图片保存</h2>
+  <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div>
+      <p>doctor-avatar.png</p>
+      <canvas id="doctor" width="200" height="200"></canvas>
+    </div>
+    <div>
+      <p>patient1.png</p>
+      <canvas id="patient1" width="200" height="200"></canvas>
+    </div>
+    <div>
+      <p>patient2.png</p>
+      <canvas id="patient2" width="200" height="200"></canvas>
+    </div>
+    <div>
+      <p>patient3.png</p>
+      <canvas id="patient3" width="200" height="200"></canvas>
+    </div>
+  </div>
+
+  <script>
+    function drawAvatar(canvasId, bgColor, text, textColor) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+
+      // 绘制圆形背景
+      ctx.fillStyle = bgColor;
+      ctx.beginPath();
+      ctx.arc(100, 100, 100, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 绘制文字
+      ctx.fillStyle = textColor;
+      ctx.font = 'bold 60px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, 100, 100);
+    }
+
+    // 生成医生头像 - 绿色背景
+    drawAvatar('doctor', '#4CAF50', '医', 'white');
+
+    // 生成患者头像 - 不同颜色
+    drawAvatar('patient1', '#E3F2FD', '金', '#1976D2');
+    drawAvatar('patient2', '#FCE4EC', '张', '#C2185B');
+    drawAvatar('patient3', '#E8F5E9', '李', '#388E3C');
+  </script>
+</body>
+</html>

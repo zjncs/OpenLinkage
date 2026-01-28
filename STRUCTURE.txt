@@ -1,0 +1,82 @@
+OpenLinkage/
+│
+├── README.md                    # Main monorepo documentation
+├── package.json                 # Monorepo workspace configuration
+├── .gitignore                   # Git ignore rules
+│
+├── apps/                        # Client Applications
+│   ├── desktop/                 # Desktop App (Electron)
+│   │   ├── client/              # React frontend
+│   │   ├── server/              # Express + tRPC backend
+│   │   ├── electron/            # Electron main process
+│   │   ├── shared/              # Shared constants/types
+│   │   ├── drizzle/             # Database schema
+│   │   ├── package.json         # Desktop dependencies
+│   │   └── README.md
+│   │
+│   ├── mobile/                  # Mobile App (Capacitor)
+│   │   ├── src/                 # Vue 3 source code
+│   │   ├── ios/                 # iOS native project
+│   │   ├── android/             # Android native project
+│   │   ├── public/              # Static assets
+│   │   ├── scripts/             # Build scripts
+│   │   ├── package.json         # Mobile dependencies
+│   │   └── README.md
+│   │
+│   ├── miniprogram/             # WeChat Mini Program
+│   │   ├── pages/               # Mini program pages
+│   │   ├── assets/              # Images and icons
+│   │   ├── app.json             # Mini program config
+│   │   └── README.md
+│   │
+│   └── web/                     # Web Applications
+│       ├── doctor/              # Doctor Portal
+│       │   ├── css/
+│       │   ├── js/
+│       │   ├── images/
+│       │   ├── server.js
+│       │   └── package.json
+│       │
+│       ├── portal/              # User Portal
+│       │   ├── js/
+│       │   ├── server.js
+│       │   └── package.json
+│       │
+│       └── README.md
+│
+├── packages/                    # Shared Packages
+│   ├── backend/                 # API Server
+│   │   ├── src/
+│   │   │   ├── config/          # Configuration
+│   │   │   ├── common/          # Common utilities
+│   │   │   └── modules/         # Feature modules
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── core/                    # Core Utilities
+│   │   ├── types/               # TypeScript types
+│   │   ├── context.ts           # App context
+│   │   ├── cookies.ts           # Cookie utilities
+│   │   ├── doubao.ts            # AI integration
+│   │   ├── llm.ts               # LLM services
+│   │   ├── oauth.ts             # OAuth auth
+│   │   ├── trpc.ts              # tRPC config
+│   │   ├── errors.ts            # Error handling
+│   │   └── README.md
+│   │
+│   └── health-data/             # WellAlly Health System
+│       ├── .claude/             # Claude AI config
+│       │   ├── commands/        # Custom commands
+│       │   ├── skills/          # Health analysis skills
+│       │   └── specialists/     # Domain specialists
+│       ├── data-example/        # Sample health data
+│       ├── docs/                # Documentation
+│       ├── scripts/             # Utility scripts
+│       ├── package.json
+│       └── README.md
+│
+└── docs/                        # Documentation
+    ├── MIGRATION.md             # Migration guide
+    ├── ARCHITECTURE.md          # System architecture
+    └── SUMMARY.md               # Migration summary
+

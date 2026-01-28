@@ -1,0 +1,43 @@
+<!-- pages/moment/moment.wxml -->
+<view class="moment-container">
+  <!-- 顶部导航栏 -->
+  <view class="header">
+    <text class="publish-btn" bindtap="publish">发布</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content">
+    <!-- 文本输入框 -->
+    <textarea
+      class="text-input"
+      placeholder="这一刻的想法..."
+      placeholder-style="color: #ccc;"
+      value="{{content}}"
+      bindinput="onContentInput"
+      maxlength="500"
+      auto-height
+    ></textarea>
+
+    <!-- 图片选择区域 -->
+    <view class="image-section">
+      <view class="image-list">
+        <!-- 已选择的图片 -->
+        <view
+          wx:for="{{images}}"
+          wx:key="index"
+          class="image-item"
+        >
+          <image class="image" src="{{item}}" mode="aspectFill"></image>
+          <view class="delete-btn" bindtap="deleteImage" data-index="{{index}}">
+            <text class="delete-icon">×</text>
+          </view>
+        </view>
+
+        <!-- 添加图片按钮 -->
+        <view wx:if="{{images.length < 9}}" class="add-image-btn" bindtap="chooseImage">
+          <text class="add-icon">+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

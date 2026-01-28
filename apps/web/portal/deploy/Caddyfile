@@ -1,0 +1,7 @@
+www.tjucomments.xyz {
+    encode zstd gzip
+    reverse_proxy /api/* 127.0.0.1:5173
+    root * /opt/web
+    file_server
+}
+

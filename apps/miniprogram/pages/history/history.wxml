@@ -1,0 +1,77 @@
+<!-- pages/history/history.wxml -->
+<view class="history-container">
+  <!-- 日历视图 -->
+  <view class="calendar-section">
+    <!-- 星期标题 -->
+    <view class="weekdays">
+      <text class="weekday" wx:for="{{weekdays}}" wx:key="index">{{item}}</text>
+    </view>
+
+    <!-- 日期网格 -->
+    <view class="calendar-grid">
+      <view
+        wx:for="{{calendarDays}}"
+        wx:key="index"
+        class="calendar-day {{item.isCurrentMonth ? '' : 'other-month'}} {{item.isToday ? 'today' : ''}}"
+        data-date="{{item.date}}"
+        bindtap="selectDate"
+      >
+        <text class="day-number">{{item.day}}</text>
+        <!-- 日期下方的彩色小点 -->
+        <view wx:if="{{item.records && item.records.length > 0}}" class="record-dots">
+          <view
+            wx:for="{{item.records}}"
+            wx:for-item="record"
+            wx:key="type"
+            class="dot"
+            style="background-color: {{record.color}}"
+          ></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 食药提醒列表 -->
+  <view class="reminder-section">
+    <view class="section-header">
+      <text class="section-title">食药提醒</text>
+    </view>
+
+    <view wx:if="{{reminders.length === 0}}" class="empty-reminder">
+      <text class="empty-text">暂无提醒</text>
+    </view>
+
+    <scroll-view wx:else class="reminder-list" scroll-y>
+      <view
+        wx:for="{{reminders}}"
+        wx:key="id"
+        class="reminder-item"
+      >
+        <view class="medicine-icon">
+          <text class="icon-text">💊</text>
+        </view>
+        <view class="reminder-info">
+          <view class="medicine-name-row">
+            <text class="medicine-name">{{item.medicineName}}</text>
+            <text class="medicine-dosage">{{item.dosage}}</text>
+          </view>
+          <view class="reminder-details">
+            <view class="detail-item">
+              <text class="icon">🕐</text>
+              <text class="detail-text">{{item.reminderTime}}</text>
+            </view>
+            <view class="detail-item">
+              <text class="icon">📅</text>
+              <text class="detail-text">{{item.frequency}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-button" bindtap="addReminder">
+    <text class="add-icon">+</text>
+  </view>
+</view>

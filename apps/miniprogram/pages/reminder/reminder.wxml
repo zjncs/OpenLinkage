@@ -1,0 +1,64 @@
+<!-- pages/reminder/reminder.wxml -->
+<view class="reminder-container">
+  <!-- 顶部日历 -->
+  <view class="calendar-section">
+    <view class="calendar-header">
+      <text class="month-text">{{currentMonth}}</text>
+    </view>
+    <view class="calendar-grid">
+      <view
+        wx:for="{{calendarDays}}"
+        wx:key="date"
+        class="calendar-day {{item.isToday ? 'today' : ''}} {{selectedDate === item.date ? 'selected' : ''}}"
+        bindtap="selectDate"
+        data-date="{{item.date}}"
+      >
+        <text class="day-number">{{item.date}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 提醒列表 -->
+  <view class="reminder-section">
+    <view class="section-title">食药提醒</view>
+
+    <view wx:if="{{reminders.length === 0}}" class="empty-state">
+      <text class="empty-text">暂无提醒</text>
+      <text class="empty-hint">点击右下角"+"添加提醒</text>
+    </view>
+
+    <view wx:else class="reminder-list">
+      <view
+        wx:for="{{reminders}}"
+        wx:key="id"
+        class="reminder-item"
+      >
+        <view class="medicine-icon">
+          <text class="icon-text">💊</text>
+        </view>
+        <view class="reminder-info">
+          <view class="medicine-name">
+            <text class="name-text">{{item.medicineName}}</text>
+            <text class="dosage-text">{{item.dosage}}</text>
+          </view>
+          <view class="reminder-time">
+            <text class="time-icon">🕐</text>
+            <text class="time-text">{{item.reminderTime}}</text>
+            <text class="frequency-icon">📅</text>
+            <text class="frequency-text">{{item.frequency}}</text>
+          </view>
+        </view>
+        <view class="reminder-actions">
+          <view class="delete-btn" bindtap="deleteReminder" data-id="{{item.id}}">
+            <text>删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-btn" bindtap="goToAddReminder">
+    <text class="add-icon">+</text>
+  </view>
+</view>

@@ -1,0 +1,314 @@
+/* pages/article-detail/article-detail.wxss */
+.article-detail-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/* 加载状态 */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 文章包装器 */
+.article-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 自定义导航栏 */
+.custom-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 88rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+
+.navbar-left,
+.navbar-right {
+  width: 80rpx;
+}
+
+.back-icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.navbar-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+/* 内容滚动区域 */
+.content-scroll {
+  flex: 1;
+  background-color: #fff;
+}
+
+/* 文章头部 */
+.article-header {
+  background-color: #fff;
+}
+
+.cover-image {
+  width: 100%;
+  height: 400rpx;
+  display: block;
+}
+
+/* 标题区域 */
+.title-section {
+  padding: 30rpx 30rpx 20rpx;
+}
+
+.article-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #333;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+/* 标签 */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
+
+.tag {
+  padding: 8rpx 20rpx;
+  background-color: #e8f5e9;
+  color: #4CAF50;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+}
+
+/* 作者信息 */
+.author-info {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.author-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.author-details {
+  flex: 1;
+}
+
+.author-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.meta-info {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.separator {
+  margin: 0 12rpx;
+}
+
+/* 文章正文 */
+.article-body {
+  padding: 30rpx;
+  line-height: 1.8;
+  font-size: 30rpx;
+  color: #333;
+}
+
+/* Rich Text 样式 */
+.article-body rich-text {
+  width: 100%;
+}
+
+.article-body h2 {
+  font-size: 36rpx;
+  font-weight: 600;
+  margin: 40rpx 0 20rpx;
+  color: #333;
+}
+
+.article-body h3 {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin: 30rpx 0 15rpx;
+  color: #333;
+}
+
+.article-body p {
+  margin: 20rpx 0;
+  text-align: justify;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 40rpx;
+  margin: 20rpx 0;
+}
+
+.article-body li {
+  margin: 10rpx 0;
+}
+
+/* 相关文章推荐 */
+.related-section {
+  margin-top: 40rpx;
+  padding: 30rpx;
+  background-color: #f9f9f9;
+}
+
+.section-title {
+  margin-bottom: 20rpx;
+}
+
+.title-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.related-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.related-item {
+  display: flex;
+  background-color: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+  padding: 20rpx;
+}
+
+.related-cover {
+  width: 160rpx;
+  height: 120rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.related-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.related-title {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.related-meta {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 底部占位 */
+.bottom-placeholder {
+  height: 120rpx;
+}
+
+/* 底部操作栏 */
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+  padding: 0 30rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #eee;
+  box-shadow: 0 -2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.action-left {
+  display: flex;
+  gap: 40rpx;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.action-icon {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.action-text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.action-text.active {
+  color: #4CAF50;
+}
+
+/* 分享按钮 */
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  padding: 16rpx 32rpx;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 50rpx;
+  border: none;
+  font-size: 28rpx;
+}
+
+.share-btn::after {
+  border: none;
+}
+
+.share-icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.share-text {
+  color: #fff;
+  font-size: 28rpx;
+}

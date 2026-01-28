@@ -1,0 +1,50 @@
+<!-- pages/chat-detail/chat-detail.wxml -->
+<view class="chat-detail-container">
+  <!-- 消息列表 -->
+  <scroll-view
+    id="message-list"
+    class="message-list"
+    scroll-y
+    scroll-into-view="{{scrollIntoView}}"
+  >
+    <view wx:for="{{messages}}" wx:key="id" class="message-item {{item.role}}">
+      <image wx:if="{{item.role === 'assistant'}}" class="message-avatar" src="{{contactAvatar}}" mode="aspectFill"></image>
+      <view class="message-bubble">
+        <view class="message-content">
+          <text>{{item.content}}</text>
+        </view>
+        <text class="message-time">{{item.time}}</text>
+      </view>
+      <image wx:if="{{item.role === 'user'}}" class="message-avatar" src="/assets/images/user-avatar.png"></image>
+    </view>
+
+    <view wx:if="{{loading}}" class="loading-message">
+      <text>对方正在输入...</text>
+    </view>
+  </scroll-view>
+
+  <!-- 输入框 -->
+  <view class="input-bar">
+    <view class="input-actions">
+      <view class="action-icon" bindtap="chooseImage">
+        <text>📷</text>
+      </view>
+      <view class="action-icon" bindtap="startVoice">
+        <text>🎤</text>
+      </view>
+    </view>
+    <input
+      class="message-input"
+      placeholder="请输入消息..."
+      value="{{inputValue}}"
+      bindinput="onInputChange"
+      confirm-type="send"
+      bindconfirm="sendMessage"
+    />
+    <view class="input-actions">
+      <view class="action-icon" bindtap="sendMessage">
+        <text>✈️</text>
+      </view>
+    </view>
+  </view>
+</view>

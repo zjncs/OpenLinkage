@@ -1,0 +1,105 @@
+<!-- pages/profile/profile.wxml -->
+<view class="profile-container">
+  <!-- 顶部用户信息区域 -->
+  <view class="header">
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+      <view class="user-details">
+        <text class="username">{{userInfo.name}}</text>
+        <text class="phone">{{userInfo.phone}}</text>
+      </view>
+    </view>
+    <view class="settings-btn" bindtap="goToSettings">
+      <image class="settings-icon" src="/assets/images/settings.png" mode="aspectFit"></image>
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="quick-actions">
+    <view class="action-item" bindtap="upgradeAccount">
+      <image class="action-icon" src="/assets/images/user-shoppingcar.png" mode="aspectFit"></image>
+      <text class="action-text">升级账户</text>
+    </view>
+    <view class="action-item" bindtap="viewOrders">
+      <image class="action-icon" src="/assets/images/user-order.png" mode="aspectFit"></image>
+      <text class="action-text">我的订单</text>
+    </view>
+    <view class="action-item" bindtap="viewBalance">
+      <image class="action-icon" src="/assets/images/user-moneybag.png" mode="aspectFit"></image>
+      <text class="action-text">我的余额</text>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view class="content" scroll-y>
+    <!-- 健康服务 -->
+    <view class="section-card">
+      <view class="section-title">健康服务</view>
+      <view class="menu-list">
+        <view class="menu-item" bindtap="goToHealthRecord">
+          <view class="menu-left">
+            <image class="menu-icon" src="/assets/images/user-健康档案.png" mode="aspectFit"></image>
+            <text class="menu-text">健康档案</text>
+          </view>
+          <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+        <view class="menu-item" bindtap="goToAnalysis">
+          <view class="menu-left">
+            <image class="menu-icon" src="/assets/images/user-专业分析.png" mode="aspectFit"></image>
+            <text class="menu-text">专业分析</text>
+          </view>
+          <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+        <view class="menu-item" bindtap="goToDataView">
+          <view class="menu-left">
+            <image class="menu-icon" src="/assets/images/user-数据查看.png" mode="aspectFit"></image>
+            <text class="menu-text">数据查看</text>
+          </view>
+          <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+        <view class="menu-item" bindtap="goToReport">
+          <view class="menu-left">
+            <image class="menu-icon" src="/assets/images/user-日报周报.png" mode="aspectFit"></image>
+            <text class="menu-text">日报周报</text>
+          </view>
+          <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+
+    <!-- 常用工具 -->
+    <view class="section-card">
+      <view class="section-title">常用工具</view>
+      <view class="menu-list">
+        <view class="menu-item" bindtap="inviteFriends">
+          <view class="menu-left">
+            <image class="menu-icon" src="/assets/images/user-邀请好友.png" mode="aspectFit"></image>
+            <text class="menu-text">邀请好友</text>
+          </view>
+          <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+        <view class="menu-item" bindtap="feedback">
+          <view class="menu-left">
+            <image class="menu-icon" src="/assets/images/user-用户反馈.png" mode="aspectFit"></image>
+            <text class="menu-text">用户反馈</text>
+          </view>
+          <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+        <view class="menu-item" bindtap="helpCenter">
+          <view class="menu-left">
+            <image class="menu-icon" src="/assets/images/user-帮助中心.png" mode="aspectFit"></image>
+            <text class="menu-text">帮助中心</text>
+          </view>
+          <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+        <view class="menu-item" bindtap="contactService">
+          <view class="menu-left">
+            <image class="menu-icon" src="/assets/images/user-联系客服.png" mode="aspectFit"></image>
+            <text class="menu-text">联系客服</text>
+          </view>
+          <image class="arrow-icon" src="/assets/images/arrow-right.png" mode="aspectFit"></image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

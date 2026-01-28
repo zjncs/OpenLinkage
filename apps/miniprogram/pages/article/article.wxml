@@ -1,0 +1,46 @@
+<!-- pages/article/article.wxml -->
+<view class="article-container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input">
+      <image class="search-icon" src="/assets/images/search.png" mode="aspectFit"></image>
+      <input
+        class="search-field"
+        placeholder="请输入关键词"
+        value="{{searchKeyword}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearch"
+      />
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view class="content" scroll-y>
+    <!-- 热门推荐 -->
+    <view class="featured-card" bindtap="viewArticle" data-id="{{featuredArticle.id}}">
+      <image class="featured-image" src="{{featuredArticle.image}}" mode="aspectFill"></image>
+      <view class="featured-overlay">
+        <view class="featured-tag">🔥 热门</view>
+        <text class="featured-title">{{featuredArticle.title}}</text>
+      </view>
+    </view>
+
+    <!-- 文章列表 -->
+    <view class="article-list">
+      <view
+        wx:for="{{articles}}"
+        wx:key="id"
+        class="article-item"
+        bindtap="viewArticle"
+        data-id="{{item.id}}"
+      >
+        <view class="article-content">
+          <view class="article-tag">{{item.tag}}</view>
+          <text class="article-title">{{item.title}}</text>
+          <text class="article-date">{{item.date}}</text>
+        </view>
+        <image class="article-thumb" src="{{item.image}}" mode="aspectFill"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>

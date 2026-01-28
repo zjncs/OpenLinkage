@@ -1,0 +1,191 @@
+<!-- pages/chat/chat.wxml -->
+<view class="chat-container">
+  <!-- Tab导航 -->
+  <view class="tab-bar">
+    <view
+      wx:for="{{tabs}}"
+      wx:key="index"
+      class="tab-item {{currentTab === index ? 'active' : ''}}"
+      data-index="{{index}}"
+      bindtap="switchTab"
+    >
+      {{item}}
+      <view wx:if="{{currentTab === index}}" class="tab-indicator"></view>
+    </view>
+  </view>
+
+  <!-- 管家Tab内容 -->
+  <view wx:if="{{currentTab === 0}}" class="tab-content">
+    <!-- 健康生命值卡片 -->
+    <view class="health-card">
+      <view class="health-header">
+        <image class="doctor-avatar" src="/assets/images/doctor.png" mode="aspectFill"></image>
+        <view class="health-info">
+          <view class="health-score-row">
+            <text class="health-label">健康生命值:</text>
+            <text class="health-score">75%</text>
+          </view>
+          <view class="health-status-row">
+            <text class="status-label">状态:</text>
+            <text class="status-value">活力满满</text>
+          </view>
+        </view>
+      </view>
+      <view class="health-advice">
+        <text>最近您的血压控制得很好，继续保持饮食清淡和适量运动。解答您的任何问题。</text>
+      </view>
+    </view>
+
+    <!-- 消息列表 -->
+    <scroll-view
+      id="message-list"
+      class="message-list"
+      scroll-y
+      scroll-into-view="{{scrollIntoView}}"
+    >
+      <view wx:for="{{messages}}" wx:key="id" class="message-item {{item.role}}">
+        <image wx:if="{{item.role === 'assistant'}}" class="message-avatar" src="/assets/images/doctor.png"></image>
+        <view class="message-bubble">
+          <!-- 语音消息 -->
+          <view wx:if="{{item.voice}}" class="voice-message">
+            <view class="voice-indicator">
+              <text class="voice-icon">🔊</text>
+              <text class="voice-duration">{{item.duration}}</text>
+            </view>
+            <text class="message-time">{{item.time}}</text>
+          </view>
+          <!-- 文字消息 -->
+          <view wx:else class="text-message">
+            <view class="message-content">
+              <text>{{item.content}}</text>
+            </view>
+            <text class="message-time">{{item.time}}</text>
+          </view>
+        </view>
+        <image wx:if="{{item.role === 'user'}}" class="message-avatar" src="/assets/images/user-avatar.png"></image>
+      </view>
+
+      <view wx:if="{{loading}}" class="loading-message">
+        <text>小灵正在思考...</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 群聊Tab内容 -->
+  <view wx:if="{{currentTab === 1}}" class="tab-content">
+    <!-- 消息列表 -->
+    <scroll-view
+      id="message-list"
+      class="message-list group-chat"
+      scroll-y
+      scroll-into-view="{{scrollIntoView}}"
+    >
+      <view wx:for="{{messages}}" wx:key="id" class="message-item {{item.role}}">
+        <!-- 用户消息 -->
+        <view wx:if="{{item.role === 'user'}}" class="user-message-wrapper">
+          <view class="message-bubble">
+            <view class="message-content user-content">
+              <text>{{item.content}}</text>
+            </view>
+            <text class="message-time">{{item.time}}</text>
+          </view>
+          <image class="message-avatar" src="/assets/images/user-avatar.png"></image>
+        </view>
+
+        <!-- 专家回复 -->
+        <view wx:if="{{item.role === 'assistant'}}" class="expert-message-wrapper">
+          <view class="expert-avatar" style="background-color: {{item.expertColor}}">
+            <text class="expert-icon">{{item.expertIcon}}</text>
+          </view>
+          <view class="message-bubble">
+            <view class="expert-name">{{item.expertName}}</view>
+            <view class="message-content expert-content">
+              <text>{{item.content}}</text>
+            </view>
+            <text class="message-time">{{item.time}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{loading}}" class="loading-message">
+        <text>专家正在回复...</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 家人Tab内容 -->
+  <view wx:if="{{currentTab === 2}}" class="tab-content">
+    <view class="contact-list">
+      <view
+        wx:for="{{familyMembers}}"
+        wx:key="id"
+        class="contact-item"
+        data-member="{{item}}"
+        bindtap="selectFamily"
+      >
+        <view class="avatar-wrapper">
+          <image class="contact-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+          <view class="contact-status {{item.online ? 'online' : 'offline'}}"></view>
+        </view>
+        <view class="contact-info">
+          <view class="contact-header">
+            <text class="contact-name">{{item.name}}</text>
+            <text class="contact-time">{{item.time}}</text>
+          </view>
+          <text class="contact-message">{{item.lastMessage}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 医生Tab内容 -->
+  <view wx:if="{{currentTab === 3}}" class="tab-content">
+    <view class="contact-list">
+      <view
+        wx:for="{{doctors}}"
+        wx:key="id"
+        class="contact-item"
+        data-doctor="{{item}}"
+        bindtap="selectDoctor"
+      >
+        <view class="avatar-wrapper">
+          <image class="contact-avatar" src="{{item.avatar}}" mode="aspectFill"></image>
+          <view class="contact-status {{item.online ? 'online' : 'offline'}}"></view>
+        </view>
+        <view class="contact-info">
+          <view class="contact-header">
+            <text class="contact-name">{{item.name}}</text>
+            <text class="contact-time">{{item.time}}</text>
+          </view>
+          <text class="contact-title">{{item.title}}</text>
+          <text class="contact-message">{{item.lastMessage}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 输入框（仅在管家和群聊Tab显示） -->
+  <view wx:if="{{currentTab === 0 || currentTab === 1}}" class="input-bar">
+    <view class="input-actions">
+      <view class="action-icon" bindtap="chooseImage">
+        <text>📷</text>
+      </view>
+      <view class="action-icon" bindtap="startVoice">
+        <text>🎤</text>
+      </view>
+    </view>
+    <input
+      class="message-input"
+      placeholder="请输入消息..."
+      value="{{inputValue}}"
+      bindinput="onInputChange"
+      confirm-type="send"
+      bindconfirm="sendMessage"
+    />
+    <view class="input-actions">
+      <view class="action-icon" bindtap="sendMessage">
+        <text>✈️</text>
+      </view>
+    </view>
+  </view>
+</view>

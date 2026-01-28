@@ -1,0 +1,149 @@
+/* pages/health-report/health-report.wxss */
+.report-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+/* 标题 */
+.header {
+  background-color: white;
+  padding: 40rpx 30rpx 30rpx 30rpx;
+  padding-top: calc(40rpx + env(safe-area-inset-top));
+  text-align: center;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 内容区域 */
+.content {
+  flex: 1;
+  padding: 20rpx;
+  overflow-y: auto;
+}
+
+/* 指标行 */
+.metrics-row {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.metric-card {
+  flex: 1;
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.metric-value {
+  font-size: 64rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1;
+  margin-bottom: 8rpx;
+}
+
+.metric-unit {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 12rpx;
+}
+
+.metric-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 20rpx;
+}
+
+/* 图表区域 */
+.chart-section {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.chart-item {
+  flex: 1;
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 20rpx;
+}
+
+.chart-header {
+  margin-bottom: 15rpx;
+}
+
+.chart-title {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.chart-placeholder {
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* 趋势图 */
+.trend-chart {
+  width: 100%;
+  height: 120rpx;
+  margin-top: 20rpx;
+}
+
+.trend-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* 健康状况 */
+.health-status-section {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  display: block;
+  margin-bottom: 30rpx;
+}
+
+.status-chart {
+  width: 100%;
+  height: 400rpx;
+}
+
+.status-canvas {
+  width: 100%;
+  height: 100%;
+}

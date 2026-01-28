@@ -1,0 +1,131 @@
+/* pages/chat-detail/chat-detail.wxss */
+.chat-detail-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+/* 消息列表 */
+.message-list {
+  flex: 1;
+  padding: 20rpx;
+  overflow-y: auto;
+}
+
+.message-item {
+  display: flex;
+  margin-bottom: 30rpx;
+  align-items: flex-start;
+}
+
+.message-item.assistant {
+  justify-content: flex-start;
+}
+
+.message-item.user {
+  justify-content: flex-end;
+}
+
+.message-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.message-item.assistant .message-avatar {
+  margin-right: 16rpx;
+  order: 1;
+}
+
+.message-item.user .message-avatar {
+  margin-left: 16rpx;
+  order: 2;
+}
+
+.message-bubble {
+  max-width: 450rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-item.assistant .message-bubble {
+  order: 2;
+  align-items: flex-start;
+}
+
+.message-item.user .message-bubble {
+  order: 1;
+  align-items: flex-end;
+}
+
+.message-content {
+  padding: 24rpx;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.message-item.assistant .message-content {
+  background-color: white;
+  color: #333;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+  border-top-left-radius: 4rpx;
+}
+
+.message-item.user .message-content {
+  background-color: #95EC69;
+  color: #333;
+  border-top-right-radius: 4rpx;
+}
+
+.message-time {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.loading-message {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 20rpx;
+}
+
+/* 输入框 */
+.input-bar {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 20rpx;
+  background-color: #F7F7F7;
+  border-top: 1rpx solid #e0e0e0;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+}
+
+.input-actions {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.action-icon {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  cursor: pointer;
+}
+
+.message-input {
+  flex: 1;
+  padding: 16rpx 24rpx;
+  background-color: white;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  border: 1rpx solid #e0e0e0;
+  margin: 0 16rpx;
+}

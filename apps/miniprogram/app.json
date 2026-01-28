@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/chat/chat",
+    "pages/chat-detail/chat-detail",
+    "pages/history/history",
+    "pages/moment/moment",
+    "pages/article/article",
+    "pages/article-detail/article-detail",
+    "pages/profile/profile",
+    "pages/health-report/health-report",
+    "pages/reminder/reminder",
+    "pages/add-reminder/add-reminder"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4CAF50",
+    "navigationBarTitleText": "灵犀健康",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4CAF50",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/chat/chat",
+        "text": "聊天",
+        "iconPath": "assets/images/chat-active.png",
+        "selectedIconPath": "assets/images/chat-active.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史",
+        "iconPath": "assets/images/history-active.png",
+        "selectedIconPath": "assets/images/history-active.png"
+      },
+      {
+        "pagePath": "pages/moment/moment",
+        "text": "动态",
+        "iconPath": "assets/images/moment-active.png",
+        "selectedIconPath": "assets/images/moment-active.png"
+      },
+      {
+        "pagePath": "pages/article/article",
+        "text": "文章",
+        "iconPath": "assets/images/magazine-activate.png",
+        "selectedIconPath": "assets/images/magazine-activate.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/images/profile-active.png",
+        "selectedIconPath": "assets/images/profile-active.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "downloadFile": 60000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}

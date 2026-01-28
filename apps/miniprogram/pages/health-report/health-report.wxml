@@ -1,0 +1,76 @@
+<!-- pages/health-report/health-report.wxml -->
+<view class="report-container">
+  <!-- 标题 -->
+  <view class="header">
+    <text class="title">健康日报</text>
+    <text class="date">{{reportDate}}</text>
+  </view>
+
+  <!-- 内容区域 -->
+  <scroll-view class="content" scroll-y>
+    <!-- 心率和血压 -->
+    <view class="metrics-row">
+      <view class="metric-card">
+        <text class="metric-value">{{heartRate}}</text>
+        <text class="metric-label">心率</text>
+      </view>
+      <view class="metric-card">
+        <text class="metric-value">{{bloodPressure}}</text>
+        <text class="metric-label">{{bloodPressureUnit}}</text>
+      </view>
+    </view>
+
+    <!-- 血红蛋白和糖分水平 -->
+    <view class="chart-section">
+      <view class="chart-item">
+        <view class="chart-header">
+          <text class="chart-title">心跳</text>
+        </view>
+        <view class="chart-placeholder">
+          <!-- 心跳图表占位 -->
+          <canvas canvas-id="heartChart" class="chart-canvas"></canvas>
+        </view>
+      </view>
+
+      <view class="chart-item">
+        <view class="chart-header">
+          <text class="chart-title">血压</text>
+        </view>
+        <view class="chart-placeholder">
+          <!-- 血压图表占位 -->
+          <canvas canvas-id="bloodPressureChart" class="chart-canvas"></canvas>
+        </view>
+      </view>
+    </view>
+
+    <!-- 血红蛋白和糖分 -->
+    <view class="metrics-row">
+      <view class="metric-card">
+        <text class="metric-value">{{hemoglobin}}</text>
+        <text class="metric-unit">g/dL</text>
+        <text class="metric-label">血红蛋白</text>
+        <!-- 趋势图 -->
+        <view class="trend-chart">
+          <canvas canvas-id="hemoglobinTrend" class="trend-canvas"></canvas>
+        </view>
+      </view>
+      <view class="metric-card">
+        <text class="metric-value">{{bloodSugar}}</text>
+        <text class="metric-unit">mg/dL</text>
+        <text class="metric-label">糖分水平</text>
+        <!-- 趋势图 -->
+        <view class="trend-chart">
+          <canvas canvas-id="bloodSugarTrend" class="trend-canvas"></canvas>
+        </view>
+      </view>
+    </view>
+
+    <!-- 健康状况 -->
+    <view class="health-status-section">
+      <text class="section-title">健康状况</text>
+      <view class="status-chart">
+        <canvas canvas-id="healthStatusChart" class="status-canvas"></canvas>
+      </view>
+    </view>
+  </scroll-view>
+</view>

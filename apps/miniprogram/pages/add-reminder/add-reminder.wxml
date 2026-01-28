@@ -1,0 +1,74 @@
+<!-- pages/add-reminder/add-reminder.wxml -->
+<view class="add-reminder-container">
+  <view class="form-section">
+    <!-- 药品名称 -->
+    <view class="form-item">
+      <view class="form-label">药品名称 *</view>
+      <input
+        class="form-input"
+        placeholder="请输入药品名称"
+        value="{{medicineName}}"
+        bindinput="onMedicineNameInput"
+      />
+    </view>
+
+    <!-- 剂量 -->
+    <view class="form-item">
+      <view class="form-label">剂量</view>
+      <input
+        class="form-input"
+        placeholder="如：100mg"
+        value="{{dosage}}"
+        bindinput="onDosageInput"
+      />
+    </view>
+
+    <!-- 提醒时间 -->
+    <view class="form-item">
+      <view class="form-label">提醒时间 *</view>
+      <picker
+        mode="time"
+        value="{{reminderTime}}"
+        bindchange="onTimeChange"
+      >
+        <view class="picker-view">
+          <text class="picker-text">{{reminderTime}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 频率 -->
+    <view class="form-item">
+      <view class="form-label">频率</view>
+      <picker
+        range="{{frequencyOptions}}"
+        value="{{frequencyOptions.indexOf(frequency)}}"
+        bindchange="onFrequencyChange"
+      >
+        <view class="picker-view">
+          <text class="picker-text">{{frequency}}</text>
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 备注 -->
+    <view class="form-item">
+      <view class="form-label">备注</view>
+      <textarea
+        class="form-textarea"
+        placeholder="添加备注信息"
+        value="{{notes}}"
+        bindinput="onNotesInput"
+        maxlength="200"
+      />
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="button-section">
+    <button class="cancel-btn" bindtap="cancel">取消</button>
+    <button class="submit-btn" bindtap="submitForm">创建提醒</button>
+  </view>
+</view>

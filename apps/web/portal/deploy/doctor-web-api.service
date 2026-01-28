@@ -1,0 +1,15 @@
+[Unit]
+Description=Doctor Web Minimal JSON API
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/web
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=2
+Environment=PORT=5173
+User=root
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>灵犀健康 - 医生工作台</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 侧边栏（精简大厂风格） -->
+  <aside class="sidebar">
+    <div class="logo">
+      <h2>灵犀健康</h2>
+      <p>医生工作台</p>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="#dashboard" class="nav-item active" data-page="dashboard" aria-label="工作台">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h5v9H3zM10 3h5v18h-5zM17 8h5v13h-5z"/></svg>
+        <span>工作台</span>
+      </a>
+      <a href="#patients" class="nav-item" data-page="patients" aria-label="患者管理">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0Z"/><path d="M3 21a7 7 0 0 1 18 0"/></svg>
+        <span>患者管理</span>
+      </a>
+      <a href="#consultations" class="nav-item" data-page="consultations" aria-label="在线咨询">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+        <span>在线咨询</span>
+      </a>
+      <a href="#appointments" class="nav-item" data-page="appointments" aria-label="预约管理">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span>预约管理</span>
+      </a>
+      <a href="#reports" class="nav-item" data-page="reports" aria-label="健康报告">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16l4-4h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
+        <span>健康报告</span>
+      </a>
+      <a href="#records" class="nav-item" data-page="records" aria-label="健康档案">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        <span>健康档案</span>
+      </a>
+      <a href="#drug" class="nav-item" data-page="drug" aria-label="药物相互作用">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 14l8-8a4 4 0 1 1 6 6l-8 8a4 4 0 0 1-6-6z"/><path d="M16 8l6 6"/></svg>
+        <span>药物相互作用</span>
+      </a>
+      <a href="#radiation" class="nav-item" data-page="radiation" aria-label="辐射追踪">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 12h0"/><path d="M12 2a10 10 0 0 1 8.66 5H12zM12 22a10 10 0 0 1-8.66-5H12zM2 12a10 10 0 0 1 3-7.32L12 12zM22 12a10 10 0 0 1-3 7.32L12 12z"/></svg>
+        <span>辐射追踪</span>
+      </a>
+      <a href="#settings" class="nav-item" data-page="settings" aria-label="设置">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V22a2 2 0 1 1-4 0v-.11a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H2a2 2 0 1 1 0-4h.11a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06A2 2 0 1 1 6.06 4.7l.06.06a1.65 1.65 0 0 0 1.82.33h.01A1.65 1.65 0 0 0 9 3.58V3a2 2 0 1 1 4 0v.11c0 .66.4 1.25 1.03 1.5.6.24 1.28.11 1.76-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06c-.44.48-.57 1.16-.33 1.76.25.63.84 1.03 1.5 1.03H22a2 2 0 1 1 0 4h-.11a1.65 1.65 0 0 0-1.5 1Z"/></svg>
+        <span>设置</span>
+      </a>
+    </nav>
+
+    <div class="user-info">
+      <img src="images/doctor-avatar.png" alt="医生头像" class="avatar">
+      <div class="user-details">
+        <div class="user-name">田晓楠</div>
+        <div class="user-title">主任医师</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 主内容区 -->
+  <main class="main-content">
+    <!-- 顶部栏 -->
+    <header class="top-bar">
+      <div class="search-box">
+        <input type="text" placeholder="搜索患者、病历..." class="search-input">
+        <button class="search-btn">🔍</button>
+      </div>
+      <div class="top-actions">
+        <button class="notification-btn">
+          🔔
+          <span class="badge">3</span>
+        </button>
+        <button class="logout-btn">退出</button>
+      </div>
+    </header>
+
+    <!-- 工作台页面 -->
+    <div id="dashboard-page" class="page active">
+      <!-- 统计卡片 -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background-color: #E3F2FD;">📊</div>
+          <div class="stat-info">
+            <div class="stat-value">128</div>
+            <div class="stat-label">今日咨询</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background-color: #E8F5E9;">👥</div>
+          <div class="stat-info">
+            <div class="stat-value">1,234</div>
+            <div class="stat-label">管理患者</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background-color: #FFF3E0;">📅</div>
+          <div class="stat-info">
+            <div class="stat-value">15</div>
+            <div class="stat-label">今日预约</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background-color: #FCE4EC;">📋</div>
+          <div class="stat-info">
+            <div class="stat-value">8</div>
+            <div class="stat-label">待审报告</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 待处理事项 -->
+      <div class="content-grid">
+        <div class="card">
+          <div class="card-header">
+            <h3>待处理咨询</h3>
+            <a href="#consultations" class="view-all">查看全部 →</a>
+          </div>
+          <div class="consultation-list">
+            <div class="consultation-item">
+              <img src="images/patient1.png" alt="患者" class="patient-avatar">
+              <div class="consultation-info">
+                <div class="patient-name">张女士</div>
+                <div class="consultation-message">医生您好，我最近血压有点高...</div>
+                <div class="consultation-time">5分钟前</div>
+              </div>
+              <button class="reply-btn">回复</button>
+            </div>
+            <div class="consultation-item">
+              <img src="images/patient2.png" alt="患者" class="patient-avatar">
+              <div class="consultation-info">
+                <div class="patient-name">李先生</div>
+                <div class="consultation-message">请问这个药需要饭前还是饭后吃？</div>
+                <div class="consultation-time">15分钟前</div>
+              </div>
+              <button class="reply-btn">回复</button>
+            </div>
+            <div class="consultation-item">
+              <img src="images/patient3.png" alt="患者" class="patient-avatar">
+              <div class="consultation-info">
+                <div class="patient-name">王女士</div>
+                <div class="consultation-message">体检报告出来了，麻烦帮我看看</div>
+                <div class="consultation-time">30分钟前</div>
+              </div>
+              <button class="reply-btn">回复</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>今日预约</h3>
+            <a href="#appointments" class="view-all">查看全部 →</a>
+          </div>
+          <div class="appointment-list">
+            <div class="appointment-item">
+              <div class="appointment-time">
+                <div class="time">09:00</div>
+                <div class="duration">30分钟</div>
+              </div>
+              <div class="appointment-info">
+                <div class="patient-name">金小天</div>
+                <div class="appointment-type">复诊 · 高血压</div>
+              </div>
+              <button class="start-btn">开始</button>
+            </div>
+            <div class="appointment-item">
+              <div class="appointment-time">
+                <div class="time">10:00</div>
+                <div class="duration">30分钟</div>
+              </div>
+              <div class="appointment-info">
+                <div class="patient-name">赵女士</div>
+                <div class="appointment-type">初诊 · 糖尿病咨询</div>
+              </div>
+              <button class="start-btn">开始</button>
+            </div>
+            <div class="appointment-item">
+              <div class="appointment-time">
+                <div class="time">14:00</div>
+                <div class="duration">30分钟</div>
+              </div>
+              <div class="appointment-info">
+                <div class="patient-name">孙先生</div>
+                <div class="appointment-type">复诊 · 心脏病</div>
+              </div>
+              <button class="start-btn disabled">未到时间</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 最近患者 -->
+      <div class="card">
+        <div class="card-header">
+          <h3>最近患者</h3>
+          <a href="#patients" class="view-all">查看全部 →</a>
+        </div>
+        <div class="patients-table">
+          <table>
+            <thead>
+              <tr>
+                <th>患者姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>诊断</th>
+                <th>最后就诊</th>
+                <th>健康状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="patient-cell">
+                    <img src="images/patient1.png" alt="患者" class="table-avatar">
+                    <span>金小天</span>
+                  </div>
+                </td>
+                <td>65岁</td>
+                <td>女</td>
+                <td>高血压</td>
+                <td>2024-01-20</td>
+                <td><span class="status-badge status-good">良好</span></td>
+                <td>
+                  <button class="action-btn">查看</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="patient-cell">
+                    <img src="images/patient2.png" alt="患者" class="table-avatar">
+                    <span>张女士</span>
+                  </div>
+                </td>
+                <td>58岁</td>
+                <td>女</td>
+                <td>糖尿病</td>
+                <td>2024-01-19</td>
+                <td><span class="status-badge status-warning">需关注</span></td>
+                <td>
+                  <button class="action-btn">查看</button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="patient-cell">
+                    <img src="images/patient3.png" alt="患者" class="table-avatar">
+                    <span>李先生</span>
+                  </div>
+                </td>
+                <td>72岁</td>
+                <td>男</td>
+                <td>心脏病</td>
+                <td>2024-01-18</td>
+                <td><span class="status-badge status-good">良好</span></td>
+                <td>
+                  <button class="action-btn">查看</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 患者管理页面 -->
+    <div id="patients-page" class="page">
+      <div class="page-header">
+        <h2>患者管理</h2>
+        <button class="primary-btn">+ 添加患者</button>
+      </div>
+      <div class="card">
+        <div class="filter-bar">
+          <input type="text" placeholder="搜索患者姓名、病历号..." class="filter-input" id="patient-q">
+          <select class="filter-select" id="patient-status">
+            <option>全部状态</option>
+            <option>良好</option>
+            <option>需关注</option>
+            <option>危急</option>
+          </select>
+          <select class="filter-select" id="patient-disease">
+            <option>全部疾病</option>
+            <option>高血压</option>
+            <option>糖尿病</option>
+            <option>心脏病</option>
+          </select>
+        </div>
+        <div class="patients-table">
+          <table>
+            <thead>
+              <tr>
+                <th>患者姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>联系方式</th>
+                <th>诊断</th>
+                <th>最后就诊</th>
+                <th>健康状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 患者列表数据将通过JavaScript动态加载 -->
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination" id="patients-pagination"></div>
+      </div>
+    </div>
+
+    <!-- 在线咨询 -->
+    <div id="consultations-page" class="page">
+      <div class="page-header">
+        <h2>在线咨询</h2>
+        <div class="tabs" role="tablist">
+          <button class="tab-btn active" data-filter="all">全部</button>
+          <button class="tab-btn" data-filter="unreplied">未回复</button>
+          <button class="tab-btn" data-filter="inprogress">处理中</button>
+          <button class="tab-btn" data-filter="resolved">已完成</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="list list--chat" id="consultation-list" aria-live="polite"></div>
+        <div class="pagination" id="consultation-pagination"></div>
+      </div>
+    </div>
+
+    <!-- 预约管理 -->
+    <div id="appointments-page" class="page">
+      <div class="page-header">
+        <h2>预约管理</h2>
+        <div class="filter-bar">
+          <input type="date" class="filter-input" id="appt-date">
+          <select class="filter-select" id="appt-type">
+            <option value="all">全部类型</option>
+            <option value="initial">初诊</option>
+            <option value="followup">复诊</option>
+          </select>
+        </div>
+      </div>
+      <div class="card">
+        <div class="list" id="appointment-list"></div>
+        <div class="pagination" id="appointment-pagination"></div>
+      </div>
+    </div>
+
+    <!-- 健康报告 -->
+    <div id="reports-page" class="page">
+      <div class="page-header">
+        <h2>健康报告</h2>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <button class="primary-btn" id="gen-report-btn">生成示例报告</button>
+          <button class="primary-btn" id="export-pdf-btn">导出PDF</button>
+          <button class="primary-btn" id="export-img-btn">导出图片</button>
+        </div>
+      </div>
+      <div class="card" id="reports-section">
+        <div class="reports-table">
+          <table>
+            <thead>
+              <tr>
+                <th>报告编号</th>
+                <th>患者</th>
+                <th>项目</th>
+                <th>结果</th>
+                <th>参考范围</th>
+                <th>状态</th>
+                <th>时间</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody id="reports-tbody"><!-- 动态填充 --></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 健康档案 -->
+    <div id="records-page" class="page">
+      <div class="page-header">
+        <h2>健康档案</h2>
+      </div>
+      <div class="card">
+        <ul class="timeline" id="records-timeline"><!-- 动态填充 --></ul>
+      </div>
+    </div>
+
+    <!-- 药物相互作用 -->
+    <div id="drug-page" class="page">
+      <div class="page-header">
+        <h2>药物相互作用</h2>
+        <div class="filter-bar">
+          <input class="filter-input" id="drug-input" placeholder="输入药品名，用逗号分隔 如：阿司匹林, 氯吡格雷">
+          <button class="primary-btn" id="check-drug-btn">检测</button>
+        </div>
+      </div>
+      <div class="card">
+        <div id="drug-result" class="list"><!-- 动态填充 --></div>
+      </div>
+    </div>
+
+    <!-- 辐射追踪 -->
+    <div id="radiation-page" class="page">
+      <div class="page-header">
+        <h2>辐射追踪</h2>
+      </div>
+      <div class="card">
+        <div class="stats-grid small">
+          <div class="stat-card">
+            <div class="stat-icon soft info">☢️</div>
+            <div class="stat-info">
+              <div class="stat-value" id="year-dose">0 mSv</div>
+              <div class="stat-label">本年度累计有效剂量</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon soft warning">📅</div>
+            <div class="stat-info">
+              <div class="stat-value" id="exam-count">0</div>
+              <div class="stat-label">年度影像检查次数</div>
+            </div>
+          </div>
+        </div>
+        <div class="patients-table">
+          <table>
+            <thead>
+              <tr>
+                <th>时间</th>
+                <th>检查项目</th>
+                <th>部位</th>
+                <th>剂量(mSv)</th>
+                <th>机构</th>
+                <th>备注</th>
+              </tr>
+            </thead>
+            <tbody id="radiation-tbody"><!-- 动态填充 --></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 设置 -->
+    <div id="settings-page" class="page">
+      <div class="page-header">
+        <h2>设置</h2>
+      </div>
+      <div class="card settings">
+        <div class="setting-item">
+          <div>
+            <div class="setting-title">外观主题</div>
+            <div class="setting-desc">跟随系统或手动选择浅色/深色</div>
+          </div>
+          <div class="segmented" role="group" aria-label="主题">
+            <button class="seg-btn" data-theme="auto">自动</button>
+            <button class="seg-btn" data-theme="light">浅色</button>
+            <button class="seg-btn" data-theme="dark">深色</button>
+          </div>
+        </div>
+        <div class="setting-item">
+          <div>
+            <div class="setting-title">品牌/科室配色</div>
+            <div class="setting-desc">选择系统主色调（会更新 --brand 变量）</div>
+          </div>
+          <div class="segmented" role="group" aria-label="品牌">
+            <button class="seg-btn brand-opt" data-brand="emerald" style="--dot:#10b981">翡翠绿</button>
+            <button class="seg-btn brand-opt" data-brand="blue" style="--dot:#2563eb">专业蓝</button>
+            <button class="seg-btn brand-opt" data-brand="violet" style="--dot:#7c3aed">紫罗兰</button>
+          </div>
+        </div>
+        <div class="setting-item">
+          <div>
+            <div class="setting-title">通知提醒</div>
+            <div class="setting-desc">重要事件与新消息推送</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="notify-toggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="setting-item">
+          <div>
+            <div class="setting-title">语言</div>
+            <div class="setting-desc">界面显示语言</div>
+          </div>
+          <select class="filter-select" id="lang-select">
+            <option value="zh-CN" selected>简体中文</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

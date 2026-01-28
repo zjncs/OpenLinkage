@@ -1,0 +1,100 @@
+<!-- pages/article-detail/article-detail.wxml -->
+<view class="article-detail-container">
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading-container">
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 文章内容 -->
+  <view wx:else class="article-wrapper">
+    <!-- 顶部导航栏 -->
+    <view class="custom-navbar">
+      <view class="navbar-left" bindtap="goBack">
+        <image class="back-icon" src="/assets/images/back.png" mode="aspectFit"></image>
+      </view>
+      <text class="navbar-title">文章详情</text>
+      <view class="navbar-right"></view>
+    </view>
+
+    <scroll-view class="content-scroll" scroll-y>
+      <!-- 文章头部 -->
+      <view class="article-header">
+        <!-- 封面图 -->
+        <image wx:if="{{article.coverImage}}" class="cover-image" src="{{article.coverImage}}" mode="aspectFill"></image>
+
+        <!-- 标题 -->
+        <view class="title-section">
+          <text class="article-title">{{article.title}}</text>
+
+          <!-- 标签 -->
+          <view class="tags-container">
+            <text wx:for="{{article.tags}}" wx:key="index" class="tag">{{item}}</text>
+          </view>
+        </view>
+
+        <!-- 作者信息 -->
+        <view class="author-info">
+          <image class="author-avatar" src="{{article.authorAvatar}}" mode="aspectFill"></image>
+          <view class="author-details">
+            <text class="author-name">{{article.author}}</text>
+            <view class="meta-info">
+              <text class="publish-date">{{article.publishDate}}</text>
+              <text class="separator">·</text>
+              <text class="read-count">阅读 {{article.readCount}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 文章正文 -->
+      <view class="article-body">
+        <rich-text nodes="{{article.content}}"></rich-text>
+      </view>
+
+      <!-- 相关文章推荐 -->
+      <view wx:if="{{relatedArticles.length > 0}}" class="related-section">
+        <view class="section-title">
+          <text class="title-text">相关推荐</text>
+        </view>
+        <view class="related-list">
+          <view
+            wx:for="{{relatedArticles}}"
+            wx:key="id"
+            class="related-item"
+            bindtap="viewRelatedArticle"
+            data-id="{{item.id}}"
+          >
+            <image class="related-cover" src="{{item.coverImage}}" mode="aspectFill"></image>
+            <view class="related-info">
+              <text class="related-title">{{item.title}}</text>
+              <text class="related-meta">阅读 {{item.readCount}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 底部占位 -->
+      <view class="bottom-placeholder"></view>
+    </scroll-view>
+
+    <!-- 底部操作栏 -->
+    <view class="action-bar">
+      <view class="action-left">
+        <view class="action-btn" bindtap="toggleLike">
+          <image class="action-icon" src="{{isLiked ? '/assets/images/like-active.png' : '/assets/images/like.png'}}" mode="aspectFit"></image>
+          <text class="action-text {{isLiked ? 'active' : ''}}">{{likeCount}}</text>
+        </view>
+        <view class="action-btn" bindtap="toggleCollect">
+          <image class="action-icon" src="{{isCollected ? '/assets/images/collect-active.png' : '/assets/images/collect.png'}}" mode="aspectFit"></image>
+          <text class="action-text {{isCollected ? 'active' : ''}}">收藏</text>
+        </view>
+      </view>
+      <view class="action-right">
+        <button class="share-btn" open-type="share">
+          <image class="share-icon" src="/assets/images/share.png" mode="aspectFit"></image>
+          <text class="share-text">分享</text>
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

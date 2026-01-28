@@ -1,0 +1,487 @@
+/* pages/chat/chat.wxss */
+.chat-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+/* Tab导航栏 */
+.tab-bar {
+  display: flex;
+  background-color: white;
+  padding: 20rpx 0;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+  position: relative;
+  padding-bottom: 10rpx;
+}
+
+.tab-item.active {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 6rpx;
+  background-color: #4CAF50;
+  border-radius: 3rpx;
+}
+
+/* Tab内容区域 */
+.tab-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 健康生命值卡片 */
+.health-card {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  margin: 20rpx;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  box-shadow: 0 8rpx 24rpx rgba(76, 175, 80, 0.3);
+}
+
+.health-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.doctor-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255, 255, 255, 0.5);
+  background-color: white;
+}
+
+.health-info {
+  flex: 1;
+  margin-left: 20rpx;
+  color: white;
+}
+
+.health-score-row,
+.health-status-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.health-label,
+.status-label {
+  font-size: 28rpx;
+  opacity: 0.9;
+  margin-right: 10rpx;
+}
+
+.health-score {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.status-value {
+  font-size: 28rpx;
+  font-weight: 500;
+}
+
+.health-advice {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20rpx;
+  border-radius: 16rpx;
+  color: white;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+/* 消息列表 */
+.message-list {
+  flex: 1;
+  padding: 20rpx;
+  padding-bottom: 100rpx;
+  overflow-y: auto;
+}
+
+.message-item {
+  display: flex;
+  margin-bottom: 30rpx;
+  align-items: flex-start;
+}
+
+.message-item.assistant {
+  justify-content: flex-start;
+}
+
+.message-item.user {
+  justify-content: flex-end;
+}
+
+.message-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.message-item.assistant .message-avatar {
+  margin-right: 16rpx;
+  order: 1;
+}
+
+.message-item.user .message-avatar {
+  margin-left: 16rpx;
+  order: 2;
+}
+
+.message-bubble {
+  max-width: 450rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-item.assistant .message-bubble {
+  order: 2;
+  align-items: flex-start;
+}
+
+.message-item.user .message-bubble {
+  order: 1;
+  align-items: flex-end;
+}
+
+.message-content {
+  padding: 24rpx;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.message-item.assistant .message-content {
+  background-color: white;
+  color: #333;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+  border-top-left-radius: 4rpx;
+}
+
+.message-item.user .message-content {
+  background-color: #95EC69;
+  color: #333;
+  border-top-right-radius: 4rpx;
+}
+
+.voice-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.voice-indicator {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 24rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
+}
+
+.message-item.assistant .voice-indicator {
+  background-color: white;
+  border-top-left-radius: 4rpx;
+}
+
+.message-item.user .voice-indicator {
+  background-color: #95EC69;
+  border-top-right-radius: 4rpx;
+}
+
+.voice-icon {
+  font-size: 32rpx;
+  margin-right: 10rpx;
+}
+
+.voice-duration {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.message-time {
+  font-size: 22rpx;
+  color: #999;
+  margin-top: 8rpx;
+  align-self: flex-end;
+}
+
+.message-item.user .message-time {
+  color: #999;
+}
+
+.loading-message {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 20rpx;
+}
+
+/* 专家列表 */
+.expert-list {
+  display: flex;
+  padding: 20rpx;
+  background-color: white;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.expert-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  margin-right: 20rpx;
+  border-radius: 16rpx;
+  border: 2rpx solid #e0e0e0;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.expert-item.active {
+  border-width: 3rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.expert-icon {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+}
+
+/* 群聊消息样式 */
+.message-list.group-chat {
+  background-color: #F5F5F5;
+}
+
+.user-message-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-bottom: 30rpx;
+  padding: 0 20rpx;
+}
+
+.user-message-wrapper .message-bubble {
+  order: 1;
+  max-width: 500rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.user-message-wrapper .message-avatar {
+  order: 2;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
+
+.user-content {
+  background-color: #95EC69;
+  color: #333;
+  padding: 20rpx 24rpx;
+  border-radius: 16rpx;
+  border-top-right-radius: 4rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.expert-message-wrapper {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30rpx;
+  padding: 0 20rpx;
+}
+
+.expert-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+}
+
+.expert-icon {
+  font-size: 36rpx;
+  color: white;
+}
+
+.expert-message-wrapper .message-bubble {
+  flex: 1;
+  max-width: 500rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.expert-name {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 8rpx;
+}
+
+.expert-content {
+  background-color: white;
+  color: #333;
+  padding: 20rpx 24rpx;
+  border-radius: 16rpx;
+  border-top-left-radius: 4rpx;
+  font-size: 28rpx;
+  line-height: 1.6;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 联系人列表 */
+.contact-list {
+  flex: 1;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.contact-item {
+  display: flex;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: relative;
+}
+
+.avatar-wrapper {
+  position: relative;
+  margin-right: 20rpx;
+}
+
+.contact-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.contact-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.contact-title {
+  font-size: 26rpx;
+  color: #4CAF50;
+  margin-bottom: 8rpx;
+}
+
+.contact-message {
+  font-size: 28rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact-badge {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  width: 16rpx;
+  height: 16rpx;
+  background-color: #4CAF50;
+  border-radius: 50%;
+}
+
+.contact-status {
+  position: absolute;
+  bottom: 2rpx;
+  right: 2rpx;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  border: 3rpx solid white;
+}
+
+.contact-status.online {
+  background-color: #4CAF50;
+}
+
+.contact-status.offline {
+  background-color: #999;
+}
+
+/* 输入框 */
+.input-bar {
+  display: flex;
+  align-items: center;
+  padding: 16rpx 20rpx;
+  padding-bottom: calc(16rpx + env(safe-area-inset-bottom));
+  background-color: #F7F7F7;
+  border-top: 1rpx solid #e0e0e0;
+}
+
+.input-actions {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.action-icon {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  cursor: pointer;
+}
+
+.message-input {
+  flex: 1;
+  padding: 16rpx 24rpx;
+  background-color: white;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  border: 1rpx solid #e0e0e0;
+  margin: 0 16rpx;
+}

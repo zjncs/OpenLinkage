@@ -1,0 +1,40 @@
+{
+  "name": "openlinkage-monorepo",
+  "version": "1.0.0",
+  "description": "OpenLinkage - Comprehensive health management platform monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "apps/web/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:desktop": "cd apps/desktop && pnpm dev",
+    "dev:mobile": "cd apps/mobile && npm run dev",
+    "dev:backend": "cd packages/backend && npm run dev",
+    "build:desktop": "cd apps/desktop && pnpm build",
+    "build:mobile": "cd apps/mobile && npm run build",
+    "build:backend": "cd packages/backend && npm run build",
+    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "lint": "echo 'Linting not configured yet'",
+    "test": "echo 'Tests not configured yet'"
+  },
+  "keywords": [
+    "health",
+    "monorepo",
+    "electron",
+    "mobile",
+    "wechat",
+    "healthcare",
+    "ai"
+  ],
+  "author": "OpenLinkage Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}
